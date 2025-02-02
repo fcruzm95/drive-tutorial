@@ -79,10 +79,10 @@ export default function GoogleDriveClone() {
     const newBreadcrumbs = breadcrumbs.slice(0, index + 1)
     setBreadcrumbs(newBreadcrumbs)
     const targetFolder = newBreadcrumbs[newBreadcrumbs.length - 1]
-    if (targetFolder.id === "root") {
+    if (targetFolder?.id === "root") {
       setCurrentFolder(mockData)
     } else {
-      setCurrentFolder(targetFolder.children || [])
+      setCurrentFolder(targetFolder?.children || [])
     }
   }
 
