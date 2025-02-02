@@ -6,6 +6,7 @@ import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
 const config = {
+    // This will be handled on CI pipeline.
     eslint: {
         ignoreDuringBuilds: true,
     },
