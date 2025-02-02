@@ -70,7 +70,7 @@ export default function GoogleDriveClone() {
 
   const navigateToFolder = (item: Item) => {
     if (item.type === "folder") {
-      setCurrentFolder(item.children || [])
+      setCurrentFolder(item.children ?? [])
       setBreadcrumbs([...breadcrumbs, item])
     }
   }
@@ -82,7 +82,7 @@ export default function GoogleDriveClone() {
     if (targetFolder?.id === "root") {
       setCurrentFolder(mockData)
     } else {
-      setCurrentFolder(targetFolder?.children || [])
+      setCurrentFolder(targetFolder?.children ?? [])
     }
   }
 
