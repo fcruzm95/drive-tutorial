@@ -5,6 +5,15 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+    // This will be handled on CI pipeline.
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
+
+    typescript: {
+        ignoreBuildErrors: true,
+    },
+};
 
 export default config;
