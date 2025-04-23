@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { File, mockFiles } from "../lib/mock-data"
+import { File, Folder, mockFiles } from "../lib/mock-data"
 import { Folder as FolderIcon, FileIcon, Upload, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { Button } from "~/components/ui/button"
@@ -77,27 +77,27 @@ export default function GoogleDriveClone() {
             </div>
           </div>
           <ul>
-            {getCurrentFiles().map((file) => (
-              <li key={file.id} className="px-6 py-4 border-b border-gray-700 hover:bg-gray-750">
+            {getCurrentFiles().map((element: File | Folder) => (
+              <li key={element.id} className="px-6 py-4 border-b border-gray-700 hover:bg-gray-750">
                 <div className="grid grid-cols-12 gap-4 items-center">
                   <div className="col-span-6 flex items-center">
-                    {file.type === "folder" ? (
+                    {element.type === "folder" ? (
                       <button
-                        onClick={() => handleFolderClick(file.id)}
+                        onClick={() => handleFolderClick(element.id)}
                         className="flex items-center text-gray-100 hover:text-blue-400"
                       >
                         <FolderIcon className="mr-3" size={20} />
-                        {file.name}
+                        {element.name}
                       </button>
                     ) : (
-                      <Link href={file.url || "#"} className="flex items-center text-gray-100 hover:text-blue-400">
+                      <Link href={element.url || "#"} className="flex items-center text-gray-100 hover:text-blue-400">
                         <FileIcon className="mr-3" size={20} />
-                        {file.name}
+                        {element.name}
                       </Link>
                     )}
                   </div>
-                  <div className="col-span-3 text-gray-400">{file.type === "folder" ? "Folder" : "File"}</div>
-                  <div className="col-span-3 text-gray-400">{file.type === "folder" ? "--" : "2 MB"}</div>
+                  <div className="col-span-3 text-gray-400">{element.type === "folder" ? "Folder" : "File"}</div>
+                  <div className="col-span-3 text-gray-400">{element.type === "folder" ? "--" : "2 MB"}</div>
                 </div>
               </li>
             ))}
