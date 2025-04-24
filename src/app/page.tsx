@@ -25,10 +25,10 @@ export default function GoogleDriveClone() {
     let currentId = currentFolder
 
     while (currentId !== null) {
-      const folder = mockFiles.find((file) => file.id === currentId)
+      const folder = mockFolders.find((file) => file.id === currentId)
       if (folder) {
         breadcrumbs.unshift(folder)
-        currentId = folder.parent
+        currentId = folder.parent ?? null;
       } else {
         break
       }

@@ -24,7 +24,7 @@ export const mockFolders: Folder[] = [
 
 export const mockFiles: File[] = [
     {
-        id: "root",
+        id: "4",
         name: "Resume.pdf",
         type: "file",
         url: "/files/resume.pdf",
