@@ -54,7 +54,7 @@ export default function GoogleDriveClone() {
               My Drive
             </Button>
             {getBreadcrumbs().map((folder, index) => (
-              <div key={folder.id} className="flex items-center">
+              <div key={`breadcrumb-${index}`} className="flex items-center">
                 <ChevronRight className="mx-2 text-gray-500" size={16} />
                 <Button
                   onClick={() => handleFolderClick(folder.id)}
